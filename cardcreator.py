@@ -7,9 +7,16 @@ from PIL import Image, ImageDraw, ImageFont
 from resources.cardcode_to_card import cardcode_to_card
 from resources.exceptions import *
 from resources.languages_dictionary import languages_dict
+from resources.player import Player
 
+# def render_card(player, card_code, player_image_url, dynamic_img_fl, status_id):
 
-def render_card(player, card_code, player_image_url, dynamic_img_fl, status_id):
+def render_card( card_code, dynamic_img_fl, playerData):
+    player = Player(playerData)
+    
+    player_image_url = playerData["mug_shot"]
+    status_id = player.name.replace(" ", "_")
+
     card_obj = cardcode_to_card.get(card_code.upper())
 
     if card_obj is None:
@@ -41,25 +48,12 @@ def render_card(player, card_code, player_image_url, dynamic_img_fl, status_id):
     add_separator_lines(draw, card_obj, font_colour_top, font_colour_bottom)
 
     if player_image_url is not None:
-        temp_path = 'temp'
-        if not os.path.exists(temp_path):
-            os.makedirs(temp_path)
-
-        temp_filename = f'{status_id}.png'
-        temp_file_path = os.path.join(temp_path, temp_filename)
-
-        request = requests.get(player_image_url, stream=True)
-        if request.status_code == 200:
-            # read data from downloaded bytes and returns a PIL.Image.Image object
-            i = Image.open(BytesIO(request.content))
-            # Saves the image under the given filename
-            i.save(temp_file_path)
 
             if dynamic_img_fl:
-                card_bg_img = stamp_dynamic_player_image(card_bg_img, card_obj, temp_file_path, status_id)
+                card_bg_img = stamp_dynamic_player_image(card_bg_img, card_obj, player_image_url, status_id)
                 draw = ImageDraw.Draw(card_bg_img)
             else:
-                stamp_player_image(card_bg_img, card_obj, temp_file_path)
+                stamp_player_image(card_bg_img, card_obj, player_image_url)
 
     add_player_name_overall_and_position(draw, card_obj, font_colour_top, font_colour_bottom, player_name_left_margin,
                                          player_position_left_margin, player, name_font, overall_font, position_font)
@@ -73,6 +67,8 @@ def render_card(player, card_code, player_image_url, dynamic_img_fl, status_id):
     save_filename = f'{status_id}.png'
     output_file_path = os.path.join(save_path, save_filename)
     card_bg_img.save(output_file_path)
+
+    
     return output_file_path
 
 

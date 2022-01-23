@@ -1,23 +1,14 @@
-<p align="center">
-<img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/ozil_de.png" width="18%"><img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/neymar_pt.png" width="20%"><img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/messi_es.png" width="24%"><img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/mbappe_fr.png" width="20%"><img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/dybala_it.png" width="18%">
-</p>
+# Fifa Ultimate Team Card Creator 
 
-# Fifa Ultimate Team Card Creator Twitter bot
-<img align="right" width="20%" src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-assets/gifs/fut-card-creator-cards.gif" />
+[Origin work taken from Twitter Bot](https://github.com/ilyasmohamed/fut-card-creator/)
 
-[![Twitter URL](https://img.shields.io/twitter/follow/futcardcreator.svg?style=social)](https://twitter.com/futcardcreator)
-
-A Twitter bot written in Python which uses the Tweepy library
-
-The bot creates a Fifa Ultimate Team card when Twitter users make a request
-
-Request Tweets must be in a [specific format](#how-to-tweet-at-the-bot)
+A FUT card creator written in Python which can used to generate images for grassroots football teams
 
 Users can chose from a selection of cards, country flags and club badges which are listed in the [resources](#resources) section
 
 ## Contents
 
-- [How to tweet at the bot](#how-to-tweet-at-the-bot)
+- [How to generate cards](#how-to-generate-cards)
 - [Usage](#usage)
   - [Examples with other languages](#examples-with-other-languages)
 - [Language Support](#language-support)
@@ -30,8 +21,8 @@ Users can chose from a selection of cards, country flags and club badges which a
   - [Club Badges](#club-badges)
   
   
-## How to tweet at the bot
-In order to get the bot to generate a FUT card you must 'mention' the bot in a tweet e.g. `@futcardcreator` and the parameters must be in a specific format:
+## How to generate cards
+Ammend the data
 ```
 [Name, Position, Club Number, Country Code, Overall, PAC, DRI, SHO, DEF, PAS, PHY, Card Code, Language Code]
 ```
@@ -45,38 +36,12 @@ In order to get the bot to generate a FUT card you must 'mention' the bot in a t
 
 ## Usage
 
-<p align="center">
-<img align="center" width="100%" src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-assets/gifs/usage-messi_rare_gold.gif" />
-</p>
-
-The following tweet
-<img align="right" src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/Messi%20Rare_Gold.png" width="20%" title="Messi Rare Gold">
 ```
-@futcardcreator [Messi,RW,241,AR,94,88,96,91,32,88,61,RARE_GOLD]
-```
-(along with an image of Messi attached to the tweet) will generate the card shown on the right
-
-It is valid to add (or omit) a space after each comma between the square brackets in the request tweet e.g:
-```
-@futcardcreator [Messi, RW, 241, AR, 94, 88, 96, 91, 32, 88, 61, RARE_GOLD]
+python3 rangers.py
 ```
 
-### Examples with other languages
+Images will be generated in a 'finished-fut-cards' folder
 
-All below examples assume an image has been attached to the request tweet.
-
-| Tweet | Output Card |
-| :-----: | :-------: |
-| @futcardcreator [Messi, ED, 241, AR, 99, 99, 99, 99, 99, 99, 99, TOTY, ES] | <img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/messi_es.png" width="30%"> |
-| @futcardcreator [Neymar, PE, 73, BR, 99, 99, 99, 99, 99, 99, 99, HERO, PT] | <img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/neymar_pt.png" width="30%"> |
-| @futcardcreator [Ozil, ZOM, 1, DE, 99, 99, 99, 99, 99, 99, 99, EL_MOTM, DE] | <img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/ozil_de.png" width="30%"> |
-| @futcardcreator [Dybala, COC, 45, AR, 99, 99, 99, 99, 99, 99, 99, MOTM, IT] | <img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/dybala_it.png" width="30%"> |
-| @futcardcreator [Mbappe, BU, 73, FR, 99, 99, 99, 99, 99, 99, 99, IF_GOLD, FR] | <img src="https://github.com/ilyasmohamed/fut-card-creator/blob/master/readme-images/mbappe_fr.png" width="30%"> |
-
-<p align="center">⬇️ Have a go ⬇️</p>
-<p align="center">
-  <a href="https://twitter.com/intent/tweet?screen_name=futcardcreator&ref_src=twsrc%5Etfw"><img align="center" src="https://img.shields.io/twitter/url/https/futcardcreator.svg?label=Tweet%20the%20bot&style=social"/></a>
-</p>
 
 ## Language Support
 

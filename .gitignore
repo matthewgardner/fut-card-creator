@@ -6,15 +6,14 @@ temp/*.png
 finished-fut-cards/*
 finished-fut-cards/*.png
 
-# Credentials file
-*/credentials.py
-credentials.py
 
 # Scripts output file
 scripts/output/*
 
 # Images not in assets folder
 /*.png
+
+assets/players/*.png
 
 # Idea folder
 .idea/
